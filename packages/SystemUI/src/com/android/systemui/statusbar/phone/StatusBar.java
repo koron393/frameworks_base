@@ -5766,6 +5766,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     Settings.System.LOCKSCREEN_CLOCK_SELECTION),
                     false, this, UserHandle.USER_ALL);
             update();
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
+                    false, this, UserHandle.USER_ALL);
         }
         @Override
         public void onChange(boolean selfChange, Uri uri) {
@@ -5810,6 +5812,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 updateHeadsUpBlackList();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_CLOCK_SELECTION))) {
                 updateKeyguardStatusSettings();
+                    Settings.System.LOCKSCREEN_MEDIA_METADATA))) {
+                setLockscreenMediaMetadata();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
+                setStatusBarWindowViewOptions();
             }
 
         }
@@ -5826,6 +5833,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             setPulseBlacklist();
             updateHeadsUpBlackList();
             updateKeyguardStatusSettings();
+            setStatusBarWindowViewOptions();
         }
     }
 
@@ -5877,6 +5885,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
        if (mStatusBarWindow != null) {
            mStatusBarWindow.updateDoubleTapSettings();
        }
+    }
+
+    private void setStatusBarWindowViewOptions() {
+        if (mStatusBarWindow != null) {
+            mStatusBarWindow.setStatusBarWindowViewOptions();
+        }
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
