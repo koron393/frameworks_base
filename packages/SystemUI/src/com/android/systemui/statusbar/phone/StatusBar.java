@@ -799,8 +799,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mDevicePolicyManager = (DevicePolicyManager) mContext.getSystemService(
                 Context.DEVICE_POLICY_SERVICE);
 
-        mNotificationData = new NotificationData(this);
-
         mAccessibilityManager = (AccessibilityManager)
                 mContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
 
@@ -1765,18 +1763,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     public void requestNotificationUpdate() {
         mEntryManager.updateNotifications();
-    }
-
-    protected boolean hasActiveVisibleNotifications() {
-        return mNotificationData.hasActiveVisibleNotifications();
-    }
-
-    protected boolean hasActiveOngoingNotifications() {
-        return mNotificationData.hasActiveOngoingNotifications();
-    }
-
-    protected boolean hasActiveClearableNotificationsQS() {
-        return hasActiveClearableNotifications();
     }
 
     protected void setAreThereNotifications() {
@@ -5631,7 +5617,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     protected IStatusBarService mBarService;
 
     // all notifications
-    protected NotificationData mNotificationData;
     protected NotificationStackScrollLayout mStackScroller;
 
     protected NotificationGroupManager mGroupManager;
@@ -5753,9 +5738,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_METADATA),
                     false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.QS_SMART_PULLDOWN),
-                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.LOCK_QS_DISABLED),
                     false, this, UserHandle.USER_ALL);
@@ -5808,7 +5790,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 updateTileLayouts();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.AICP_DOUBLE_TAP_SLEEP_GESTURE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.AICP_DOUBLE_TAP_SLEEP_LOCKSCREEN)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.QS_SMART_PULLDOWN)) ||
                     uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCK_QS_DISABLED))) {
                 setStatusBarWindowViewOptions();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_MEDIA_METADATA))) {
@@ -5837,7 +5818,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             updateTickerAnimation();
             updateTickerTickDuration();
             updateTileLayouts();
-            setStatusBarWindowViewOptions();
+            updateDoubleTapSettings();
             setLockscreenMediaMetadata();
             updateRecentsMode();
             setForceAmbient();
@@ -5890,6 +5871,12 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mFpDismissNotifications = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS, 0,
                 UserHandle.USER_CURRENT) == 1;
+    }
+
+    private void updateDoubleTapSettings(){
+       if (mStatusBarWindow != null) {
+           mStatusBarWindow.updateDoubleTapSettings();
+       }
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
@@ -6524,12 +6511,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private void setLockscreenMediaMetadata() {
         mLockscreenMediaMetadata = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.LOCKSCREEN_MEDIA_METADATA, 0, UserHandle.USER_CURRENT) == 1;
-    }
-
-    private void setStatusBarWindowViewOptions() {
-        if (mStatusBarWindow != null) {
-            mStatusBarWindow.setStatusBarWindowViewOptions();
-        }
     }
 
     private void updateRecentsMode() {

@@ -197,8 +197,6 @@ public class NotificationPanelView extends PanelView implements
     private boolean mQsExpandImmediate;
     private boolean mTwoFingerQsExpandPossible;
 
-    private int mQsSmartPullDown;
-
     /**
      * If we are in a panel collapsing motion, we reset scrollY of our scroll view but still
      * need to take this into account in our panel height calculation.
@@ -1021,15 +1019,7 @@ public class NotificationPanelView extends PanelView implements
                 && (event.isButtonPressed(MotionEvent.BUTTON_SECONDARY)
                         || event.isButtonPressed(MotionEvent.BUTTON_TERTIARY));
 
-        boolean showQsOverride = false;
-
-        if (mQsSmartPullDown == 1 && !mStatusBar.hasActiveClearableNotificationsQS()
-                || mQsSmartPullDown == 2 && !mStatusBar.hasActiveOngoingNotifications()
-                || mQsSmartPullDown == 3 && !mStatusBar.hasActiveVisibleNotifications()) {
-                showQsOverride = true;
-        }
-
-        return !isQsSecureExpandDisabled() && (showQsOverride || twoFingerDrag || stylusButtonClickDrag || mouseButtonClickDrag);
+        return twoFingerDrag || stylusButtonClickDrag || mouseButtonClickDrag;
     }
 
     private void handleQsDown(MotionEvent event) {
@@ -2945,10 +2935,6 @@ public class NotificationPanelView extends PanelView implements
 
     public void updateDoubleTapToSleep(boolean doubleTapToSleepEnabled) {
         mDoubleTapToSleepEnabled = doubleTapToSleepEnabled;
-    }
-
-    public void setQsSmartPulldown(int qsSmartPulldown) {
-        mQsSmartPullDown = qsSmartPulldown;
     }
 
     public void setQsSecureExpandDisabled(boolean isQsSecureExDisabled) {
