@@ -587,6 +587,12 @@
     <protected-broadcast android:name="android.media.tv.action.CHANNEL_BROWSABLE_REQUESTED" />
     <protected-broadcast android:name="com.android.server.InputMethodManagerService.SHOW_INPUT_METHOD_PICKER" />
 
+    <!-- OmniSwitch -->
+    <protected-broadcast android:name="org.omnirom.omniswitch.ACTION_TOGGLE_OVERLAY2" />
+    <protected-broadcast android:name="org.omnirom.omniswitch.ACTION_RESTORE_HOME_STACK" />
+    <protected-broadcast android:name="org.omnirom.omniswitch.ACTION_PRELOAD_TASKS" />
+    <protected-broadcast android:name="org.omnirom.omniswitch.ACTION_HIDE_OVERLAY" />
+
     <!-- Time zone rules update intents fired by the system server -->
     <protected-broadcast android:name="com.android.intent.action.timezone.RULES_UPDATE_OPERATION" />
     <protected-broadcast android:name="com.android.intent.action.timezone.TRIGGER_RULES_UPDATE_CHECK" />
