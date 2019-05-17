@@ -529,12 +529,17 @@
         <font weight="400" style="normal" index="3" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>
     </family>
     <family lang="ja">
-        <font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>
+        <font weight="400" style="normal" index="0">mplus-1m-regular.ttf</font>
+        <font weight="700" style="normal" index="0">mplus-1m-bold.ttf</font>
         <font weight="400" style="normal" index="0" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>
     </family>
-    <family lang="ko">
+    <family lang="ja">
         <font weight="400" style="normal" index="1">NotoSansCJK-Regular.ttc</font>
         <font weight="400" style="normal" index="1" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>
+    </family>
+    <family lang="ko">
+        <font weight="400" style="normal" index="4">NotoSansCJK-Regular.ttc</font>
+        <font weight="400" style="normal" index="4" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>
     </family>
     <family lang="und-Zsye">
         <font weight="400" style="normal">NotoColorEmoji.ttf</font>
