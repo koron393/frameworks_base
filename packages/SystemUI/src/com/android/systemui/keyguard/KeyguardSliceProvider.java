@@ -261,8 +261,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
 
         if (mWeatherEnabled && mWeatherClient == null) {
             mWeatherClient = new WeatherClient(getContext());
-            mWeatherClient.addObserver(this);
-            mWeatherClient.updateWeather(true);
+            mWeatherClient.addObserver(this, false /*withQuery*/);
         } else if (!mWeatherEnabled && mWeatherClient != null) {
             mWeatherClient.removeObserver(this);
             mWeatherClient.destroy();
