@@ -272,6 +272,22 @@
     <alias name="fantasy" to="nunito" />
     <alias name="ITC Stone Serif" to="nunito" />
 
+    <family name="koruri">
+        <font weight="400" style="normal">Koruri-Regular.ttf</font>
+    </family>
+    <alias name="koruri-light" to="koruri" weight="300" />
+    <alias name="koruri-medium" to="koruri" weight="500" />
+    <alias name="koruri-semi-bold" to="koruri" weight="600" />
+    <alias name="koruri-bold" to="koruri" weight="700" />
+    <alias name="times" to="koruri" />
+    <alias name="times new roman" to="koruri" />
+    <alias name="palatino" to="koruri" />
+    <alias name="georgia" to="koruri" />
+    <alias name="baskerville" to="koruri" />
+    <alias name="goudy" to="koruri" />
+    <alias name="fantasy" to="koruri" />
+    <alias name="ITC Stone Serif" to="koruri" />
+
     <family name="monospace">
         <font weight="400" style="normal">DroidSansMono.ttf</font>
     </family>

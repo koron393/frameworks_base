@@ -34,6 +34,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontNunitoSourceOverlay \
 	FontGrandHotelSourceOverlay \
 	FontRedressedSourceOverlay \
+	FontKoruriSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularLauncherOverlay \
 	IconPackCircularSettingsOverlay \
