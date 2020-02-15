@@ -145,48 +145,6 @@
     <alias name="fantasy" to="coolstory" />
     <alias name="ITC Stone Serif" to="coolstory" />
 
-    <family name="lgsmartgothic">
-        <font weight="300" style="normal">LGSmartGothic.ttf</font>
-    </family>
-    <alias name="lgsmartgothic-semi-bold" to="lgsmartgothic" weight="600" />
-    <alias name="lgsmartgothic-bold" to="lgsmartgothic" weight="700" />
-    <alias name="times" to="lgsmartgothic" />
-    <alias name="times new roman" to="lgsmartgothic" />
-    <alias name="palatino" to="lgsmartgothic" />
-    <alias name="georgia" to="lgsmartgothic" />
-    <alias name="baskerville" to="lgsmartgothic" />
-    <alias name="goudy" to="lgsmartgothic" />
-    <alias name="fantasy" to="lgsmartgothic" />
-    <alias name="ITC Stone Serif" to="lgsmartgothic" />
-
-    <family name="rosemary">
-        <font weight="300" style="normal">Rosemary-Regular.ttf</font>
-    </family>
-    <alias name="rosemary-semi-bold" to="rosemary" weight="600" />
-    <alias name="rosemary-bold" to="rosemary" weight="700" />
-    <alias name="times" to="rosemary" />
-    <alias name="times new roman" to="rosemary" />
-    <alias name="palatino" to="rosemary" />
-    <alias name="georgia" to="rosemary" />
-    <alias name="baskerville" to="rosemary" />
-    <alias name="goudy" to="rosemary" />
-    <alias name="fantasy" to="rosemary" />
-    <alias name="ITC Stone Serif" to="rosemary" />
-
-    <family name="sonysketch">
-        <font weight="300" style="normal">SonySketch.ttf</font>
-    </family>
-    <alias name="sonysketch-semi-bold" to="sonysketch" weight="600" />
-    <alias name="sonysketch-bold" to="sonysketch" weight="700" />
-    <alias name="times" to="sonysketch" />
-    <alias name="times new roman" to="sonysketch" />
-    <alias name="palatino" to="sonysketch" />
-    <alias name="georgia" to="sonysketch" />
-    <alias name="baskerville" to="sonysketch" />
-    <alias name="goudy" to="sonysketch" />
-    <alias name="fantasy" to="sonysketch" />
-    <alias name="ITC Stone Serif" to="sonysketch" />
-
     <family name="surfer">
         <font weight="300" style="normal">Surfer.ttf</font>
     </family>
@@ -200,70 +158,6 @@
     <alias name="goudy" to="surfer" />
     <alias name="fantasy" to="surfer" />
     <alias name="ITC Stone Serif" to="surfer" />
-
-    <family name="oneplusslate">
-        <font weight="300" style="normal">SlateFromOP-Light.ttf</font>
-        <font weight="400" style="normal">SlateFromOP-Regular.ttf</font>
-    </family>
-    <alias name="oneplusslate-semi-bold" to="oneplusslate" weight="600" />
-    <alias name="oneplusslate-bold" to="oneplusslate" weight="700" />
-    <alias name="times" to="oneplusslate" />
-    <alias name="times new roman" to="oneplusslate" />
-    <alias name="palatino" to="oneplusslate" />
-    <alias name="georgia" to="oneplusslate" />
-    <alias name="baskerville" to="oneplusslate" />
-    <alias name="goudy" to="oneplusslate" />
-    <alias name="fantasy" to="oneplusslate" />
-    <alias name="ITC Stone Serif" to="oneplusslate" />
-
-    <family name="samsungone">
-        <font weight="400" style="normal">SamsungOne.ttf</font>
-    </family>
-    <alias name="samsungone-semi-bold" to="samsungone" weight="600" />
-    <alias name="samsungone-bold" to="samsungone" weight="700" />
-    <alias name="times" to="samsungone" />
-    <alias name="times new roman" to="samsungone" />
-    <alias name="palatino" to="samsungone" />
-    <alias name="georgia" to="samsungone" />
-    <alias name="baskerville" to="samsungone" />
-    <alias name="goudy" to="samsungone" />
-    <alias name="fantasy" to="samsungone" />
-    <alias name="ITC Stone Serif" to="samsungone" />
-
-    <family name="comicsans">
-        <font weight="400" style="normal">Comic_Sans.ttf</font>
-    </family>
-    <alias name="comicsans-semi-bold" to="comicsans" weight="600" />
-    <alias name="comicsans-bold" to="comicsans" weight="700" />
-    <alias name="times" to="comicsans" />
-    <alias name="times new roman" to="comicsans" />
-    <alias name="palatino" to="comicsans" />
-    <alias name="georgia" to="comicsans" />
-    <alias name="baskerville" to="comicsans" />
-    <alias name="goudy" to="comicsans" />
-    <alias name="fantasy" to="comicsans" />
-    <alias name="ITC Stone Serif" to="comicsans" />
-
-    <family name="googlesans">
-        <font weight="400" style="normal">GoogleSans-Regular.ttf</font>
-        <font weight="400" style="italic">GoogleSans-Italic.ttf</font>
-        <font weight="500" style="normal">GoogleSans-Medium.ttf</font>
-        <font weight="500" style="italic">GoogleSans-MediumItalic.ttf</font>
-        <font weight="700" style="normal">GoogleSans-Bold.ttf</font>
-        <font weight="700" style="italic">GoogleSans-BoldItalic.ttf</font>
-    </family>
-
-    <alias name="googlesans-medium" to="googlesans" weight="500" />
-    <alias name="googlesans-semi-bold" to="googlesans" weight="600" />
-    <alias name="googlesans-bold" to="googlesans" weight="700" />
-    <alias name="times" to="googlesans" />
-    <alias name="times new roman" to="googlesans" />
-    <alias name="palatino" to="googlesans" />
-    <alias name="georgia" to="googlesans" />
-    <alias name="baskerville" to="googlesans" />
-    <alias name="goudy" to="googlesans" />
-    <alias name="fantasy" to="googlesans" />
-    <alias name="ITC Stone Serif" to="googlesans" />
 
     <family name="comfortaa">
         <font weight="400" style="normal">Comfortaa.ttf</font>
@@ -328,70 +222,6 @@
     <alias name="goudy" to="ubuntu" />
     <alias name="fantasy" to="ubuntu" />
     <alias name="ITC Stone Serif" to="ubuntu" />
-
-    <family name="nokiapure">
-        <font weight="400" style="normal">Nokia_Pure.ttf</font>
-    </family>
-    <alias name="nokiapure-light" to="nokiapure" weight="300" />
-    <alias name="nokiapure-medium" to="nokiapure" weight="500" />
-    <alias name="nokiapure-semi-bold" to="nokiapure" weight="600" />
-    <alias name="nokiapure-bold" to="nokiapure" weight="700" />
-    <alias name="times" to="nokiapure" />
-    <alias name="times new roman" to="nokiapure" />
-    <alias name="palatino" to="nokiapure" />
-    <alias name="georgia" to="nokiapure" />
-    <alias name="baskerville" to="nokiapure" />
-    <alias name="goudy" to="nokiapure" />
-    <alias name="fantasy" to="nokiapure" />
-    <alias name="ITC Stone Serif" to="nokiapure" />
-
-    <family name="fifa2018">
-        <font weight="400" style="normal">Fifa_2018.ttf</font>
-    </family>
-    <alias name="fifa2018-light" to="fifa2018" weight="300" />
-    <alias name="fifa2018-medium" to="fifa2018" weight="500" />
-    <alias name="fifa2018-semi-bold" to="fifa2018" weight="600" />
-    <alias name="fifa2018-bold" to="fifa2018" weight="700" />
-    <alias name="times" to="fifa2018" />
-    <alias name="times new roman" to="fifa2018" />
-    <alias name="palatino" to="fifa2018" />
-    <alias name="georgia" to="fifa2018" />
-    <alias name="baskerville" to="fifa2018" />
-    <alias name="goudy" to="fifa2018" />
-    <alias name="fantasy" to="fifa2018" />
-    <alias name="ITC Stone Serif" to="fifa2018" />
-
-    <family name="cocon">
-        <font weight="400" style="normal">Cocon.ttf</font>
-    </family>
-    <alias name="cocon-light" to="cocon" weight="300" />
-    <alias name="cocon-medium" to="cocon" weight="500" />
-    <alias name="cocon-semi-bold" to="cocon" weight="600" />
-    <alias name="cocon-bold" to="cocon" weight="700" />
-    <alias name="times" to="cocon" />
-    <alias name="times new roman" to="cocon" />
-    <alias name="palatino" to="cocon" />
-    <alias name="georgia" to="cocon" />
-    <alias name="baskerville" to="cocon" />
-    <alias name="goudy" to="cocon" />
-    <alias name="fantasy" to="cocon" />
-    <alias name="ITC Stone Serif" to="cocon" />
-
-    <family name="quando">
-        <font weight="400" style="normal">Quando.ttf</font>
-    </family>
-    <alias name="quando-light" to="quando" weight="300" />
-    <alias name="quando-medium" to="quando" weight="500" />
-    <alias name="quando-semi-bold" to="quando" weight="600" />
-    <alias name="quando-bold" to="quando" weight="700" />
-    <alias name="times" to="quando" />
-    <alias name="times new roman" to="quando" />
-    <alias name="palatino" to="quando" />
-    <alias name="georgia" to="quando" />
-    <alias name="baskerville" to="quando" />
-    <alias name="goudy" to="quando" />
-    <alias name="fantasy" to="quando" />
-    <alias name="ITC Stone Serif" to="quando" />
 
     <family name="grandhotel">
         <font weight="400" style="normal">GrandHotel.ttf</font>

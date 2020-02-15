@@ -28,21 +28,10 @@ LOCAL_REQUIRED_MODULES := \
 	FontExotwoSourceOverlay \
 	FontStoropiaSourceOverlay \
 	FontUbuntuSourceOverlay \
-	FontComicSansSourceOverlay \
 	FontCoolstorySourceOverlay \
-	FontGoogleSansSourceOverlay \
-	FontLGSmartGothicSourceOverlay \
 	FontNotoSerifSourceOverlay \
-	FontOneplusSlateSource \
-	FontRosemarySourceOverlay \
-	FontSamsungOneSourceOverlay \
-	FontSonySketchSourceOverlay \
 	FontSurferSourceOverlay \
-	FontNokiaPureSourceOverlay \
 	FontNunitoSourceOverlay \
-	FontFifa2018SourceOverlay \
-	FontCoconSourceOverlay \
-	FontQuandoSourceOverlay \
 	FontGrandHotelSourceOverlay \
 	FontRedressedSourceOverlay \
 	IconPackCircularAndroidOverlay \
