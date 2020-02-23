@@ -1950,6 +1950,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case CLOSE_APP:
                 closeApp();
                 break;
+            case TORCH:
+                Utils.toggleCameraFlash();
+                break;
+            case SCREENSHOT:
+                takeScreenshot(TAKE_SCREENSHOT_FULLSCREEN);
+                break;
             default:
                 break;
         }
