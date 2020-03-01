@@ -5162,6 +5162,12 @@ public final class Settings {
         public static final String FOD_ICON_WALLPAPER_COLOR = "fod_icon_wallpaper_color";
 
         /**
+         * FOD recognizing animation
+         * @hide
+         */
+        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
+
+        /**
          * Whether to use the custom status bar header or not
          * @hide
          */
@@ -5228,6 +5234,12 @@ public final class Settings {
          * @hide
          */
         public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
+
+        /**
+         * Whether to blur behind QS
+         * @hide
+         */
+        public static final String QS_BACKGROUND_BLUR = "qs_background_blur";
 
         /**
          * Recents component
