@@ -298,6 +298,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         } else {
             WindowManager.LayoutParams attrs = mDialog.getWindow().getAttributes();
             attrs.setTitle("ActionsDialog");
+            int mActionsDialogAlpha = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.TRANSPARENT_ACTIONS_DIALOG, 100);
+            attrs.alpha = (float) mActionsDialogAlpha / 100;
             attrs.layoutInDisplayCutoutMode = LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
             mDialog.getWindow().setAttributes(attrs);
             mDialog.show();

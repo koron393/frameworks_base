@@ -200,6 +200,9 @@ public class VolumeDialogImpl implements VolumeDialog,
     private boolean mNotificationLinked;
     private int mTimeOutDesired, mTimeOut;
 
+    // Volume dialog alpha
+    private int mVolumeDialogAlpha;
+
     public VolumeDialogImpl(Context context) {
         mContext =
                 new ContextThemeWrapper(context, R.style.qs_theme);
@@ -281,11 +284,13 @@ public class VolumeDialogImpl implements VolumeDialog,
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
+        mVolumeDialogAlpha = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.TRANSPARENT_VOLUME_DIALOG, 100);
         mDialog.setOnShowListener(dialog -> {
             mDialogView.setTranslationX(getAnimatorX());
             mDialogView.setAlpha(0);
             mDialogView.animate()
-                    .alpha(1)
+                    .alpha((float) mVolumeDialogAlpha / 100)
                     .translationX(0)
                     .setDuration(DIALOG_SHOW_ANIMATION_DURATION)
                     .setInterpolator(new SystemUIInterpolators.LogDecelerateInterpolator())
@@ -918,7 +923,9 @@ public class VolumeDialogImpl implements VolumeDialog,
             Events.writeEvent(mContext, Events.EVENT_DISMISS_DIALOG, reason);
         }
         mDialogView.setTranslationX(0);
-        mDialogView.setAlpha(1);
+        mVolumeDialogAlpha = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.TRANSPARENT_VOLUME_DIALOG, 100);
+        mDialogView.setAlpha((float) mVolumeDialogAlpha / 100);
         ViewPropertyAnimator animator = mDialogView.animate()
                 .alpha(0)
                 .setDuration(DIALOG_HIDE_ANIMATION_DURATION)
@@ -1000,6 +1007,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private void updateRowsH(final VolumeRow activeRow) {
         if (D.BUG) Log.d(TAG, "updateRowsH");
+        setVolumeAlpha();
         if (!mShowing) {
             trimObsoleteH();
         }
@@ -1669,5 +1677,28 @@ public class VolumeDialogImpl implements VolumeDialog,
         private int animTargetProgress;
         private int lastAudibleLevel = 1;
         private FrameLayout dndIcon;
+    }
+
+    private void setVolumeAlpha() {
+        mVolumeDialogAlpha = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.TRANSPARENT_VOLUME_DIALOG, 100);
+        mDialog.setOnShowListener(dialog -> {
+            mDialogView.setTranslationX(getAnimatorX());
+            mDialogView.setAlpha(0);
+            mDialogView.animate()
+                    .alpha((float) mVolumeDialogAlpha / 100)
+                    .translationX(0)
+                    .setDuration(DIALOG_SHOW_ANIMATION_DURATION)
+                    .setInterpolator(new SystemUIInterpolators.LogDecelerateInterpolator())
+                    .withEndAction(() -> {
+                        if (!Prefs.getBoolean(mContext, Prefs.Key.TOUCHED_RINGER_TOGGLE, false)) {
+                            if (mRingerIcon != null) {
+                                mRingerIcon.postOnAnimationDelayed(
+                                        getSinglePressFor(mRingerIcon), 1500);
+                            }
+                        }
+                    })
+                    .start();
+        });
     }
 }

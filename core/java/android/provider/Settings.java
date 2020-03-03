@@ -5275,6 +5275,18 @@ public final class Settings {
         public static final String RECENTS_OMNI_SWITCH_ENABLED = "recents_omni_switch";
 
         /**
+         * Transparent volume dialog
+         * @hide
+         */
+        public static final String TRANSPARENT_VOLUME_DIALOG = "transparent_volume_dialog";
+
+        /**
+         * Transparent power menu and dialogs
+         * @hide
+         */
+        public static final String TRANSPARENT_ACTIONS_DIALOG = "transparent_actions_dialog";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
