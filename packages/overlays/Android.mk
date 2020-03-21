@@ -26,6 +26,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontCagliostroSourceOverlay \
 	FontComfortaaSourceOverlay \
 	FontExotwoSourceOverlay \
+	FontHackgenSourceOverlay \
 	FontStoropiaSourceOverlay \
 	FontUbuntuSourceOverlay \
 	FontCoolstorySourceOverlay \
