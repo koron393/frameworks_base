@@ -5326,6 +5326,9 @@ public final class Settings {
          */
         public static final String RECENTS_OMNI_SWITCH_ENABLED = "recents_omni_switch";
 
+        /** @hide */
+        private static final Validator OMNI_NAVIGATION_BAR_RECENTS_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Transparent volume dialog
          * @hide
@@ -5403,6 +5406,7 @@ public final class Settings {
             DISPLAY_COLOR_MODE,
             ALARM_ALERT,
             NOTIFICATION_LIGHT_PULSE,
+            RECENTS_OMNI_SWITCH_ENABLED,
         };
 
         /**
@@ -5618,6 +5622,7 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES,
                     ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
+            VALIDATORS.put(RECENTS_OMNI_SWITCH_ENABLED, OMNI_NAVIGATION_BAR_RECENTS_VALIDATOR);
         }
 
         /**
