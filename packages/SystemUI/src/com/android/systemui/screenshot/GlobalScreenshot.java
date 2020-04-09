@@ -650,12 +650,52 @@ class GlobalScreenshot {
                 new Rect(0, 0, mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels));
     }
 
+    Rect getRotationAdjustedRect(Rect rect) {
+        Display defaultDisplay = mWindowManager.getDefaultDisplay();
+        Rect adjustedRect = new Rect(rect);
+
+        mDisplay.getRealMetrics(mDisplayMetrics);
+        int rotation = defaultDisplay.getRotation();
+        switch (rotation) {
+            case Surface.ROTATION_0:
+                // properly rotated
+                break;
+            case Surface.ROTATION_90:
+                adjustedRect.top = mDisplayMetrics.heightPixels - rect.bottom;
+                adjustedRect.bottom = mDisplayMetrics.heightPixels - rect.top;
+                break;
+            case Surface.ROTATION_180:
+                adjustedRect.left = mDisplayMetrics.widthPixels - rect.right;
+                adjustedRect.top = mDisplayMetrics.heightPixels - rect.bottom;
+                adjustedRect.right = mDisplayMetrics.widthPixels - rect.left;
+                adjustedRect.bottom = mDisplayMetrics.heightPixels - rect.top;
+                break;
+            case Surface.ROTATION_270:
+                adjustedRect.left = mDisplayMetrics.widthPixels - rect.right;
+                adjustedRect.right = mDisplayMetrics.widthPixels - rect.left;
+                break;
+            default:
+                throw new IllegalArgumentException("Unknown rotation: " + rotation);
+        }
+
+        return adjustedRect;
+    }
+
+    void setLockedScreenOrientation(boolean locked) {
+        if (locked) {
+            mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_LOCKED;
+        } else {
+            mWindowLayoutParams.screenOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED;
+        }
+    }
+
     /**
      * Displays a screenshot selector
      */
     void takeScreenshotPartial(final Runnable finisher, final boolean statusBarVisible,
             final boolean navBarVisible) {
         mWindowManager.addView(mScreenshotLayout, mWindowLayoutParams);
+        setLockedScreenOrientation(true);
         mScreenshotSelectorView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -670,13 +710,14 @@ class GlobalScreenshot {
                     case MotionEvent.ACTION_UP:
                         view.setVisibility(View.GONE);
                         mWindowManager.removeView(mScreenshotLayout);
-                        final Rect rect = view.getSelectionRect();
+                        Rect rect = mScreenshotSelectorView.getSelectionRect();
+                        final Rect adjustedRect = getRotationAdjustedRect(rect);
                         if (rect != null && rect.width() != 0 && rect.height() != 0) {
                             // Need mScreenshotLayout to handle it after the view disappears
                             mScreenshotLayout.post(new Runnable() {
                                 public void run() {
                                     takeScreenshot(finisher, statusBarVisible, navBarVisible,
-                                            rect);
+                                            adjustedRect);
                                 }
                             });
                         } else {
@@ -706,7 +747,7 @@ class GlobalScreenshot {
      */
     void stopScreenshot() {
         // If the selector layer still presents on screen, we remove it and resets its state.
-        if (mScreenshotSelectorView.getSelectionRect() != null) {
+        if (mScreenshotLayout.getParent() != null) {
             mWindowManager.removeView(mScreenshotLayout);
             mScreenshotSelectorView.stopSelection();
         }
