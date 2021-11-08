@@ -102,9 +102,6 @@
 
   <java-symbol type="array" name="config_blockPackagesSensorDrain" />
 
-    <!-- Enable face auth only when swiping security view -->
-    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
-
   <!-- Clipboard access toast -->
   <java-symbol type="string" name="app_clipboard_access_denied" />
   <java-symbol type="string" name="app_clipboard_access_granted" />
@@ -122,4 +119,5 @@
 
   <!-- Whether to show settings for hiding notch fill -->
   <java-symbol type="bool" name="config_showHideNotchSettings" />
+
 </resources>
