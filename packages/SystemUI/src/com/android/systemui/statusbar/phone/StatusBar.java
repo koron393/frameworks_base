@@ -321,8 +321,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             "system:" + Settings.System.GAMING_MODE_HEADSUP_TOGGLE;
     private static final String LESS_BORING_HEADS_UP =
             "system:" + Settings.System.LESS_BORING_HEADS_UP;
-    private static final String NAVBAR_STYLE =
-            "system:" + Settings.System.NAVBAR_STYLE;
     private static final String QS_PANEL_BG_USE_NEW_TINT =
             "system:" + Settings.System.QS_PANEL_BG_USE_NEW_TINT;
     private static final String PULSE_ON_NEW_TRACKS =
@@ -821,7 +819,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private ActivityIntentHelper mActivityIntentHelper;
 
     private int mDarkStyle;
-    private int mNavbarStyle;
     private int mQSTileStyle;
     private int mSwitchStyle;
     private int mRoundedStyle;
@@ -1039,7 +1036,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         mTunerService.addTunable(this, GAMING_MODE_ACTIVE);
         mTunerService.addTunable(this, GAMING_MODE_HEADSUP_TOGGLE);
         mTunerService.addTunable(this, LESS_BORING_HEADS_UP);
-        mTunerService.addTunable(this, NAVBAR_STYLE);
         mTunerService.addTunable(this, QS_PANEL_BG_USE_NEW_TINT);
         mTunerService.addTunable(this, PULSE_ON_NEW_TRACKS);
         mTunerService.addTunable(this, BERRY_QS_TILE_STYLE);
@@ -4095,12 +4091,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         updateCorners();
     }
 
-    private void updateNavbarStyle() {
-        mUiOffloadThread.execute(() -> {
-            ThemeAccentUtils.setNavbarStyle(mOverlayManager, mNavbarStyle);
-        });
-    }
-
     private void updateQSTileStyle() {
         ThemeAccentUtils.setQSTileStyle(mOverlayManager, mQSTileStyle);
         if (mQSPanel != null) {
@@ -5167,17 +5157,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mNotificationInterruptStateProvider.setGamingPeekMode(mGamingModeActivated && mHeadsUpDisabled);
                 break;
             case LESS_BORING_HEADS_UP:
-                mlessBoringHeadsUp = 
+                mlessBoringHeadsUp =
                         TunerService.parseIntegerSwitch(newValue, false);
                 mNotificationInterruptStateProvider.setUseLessBoringHeadsUp(mlessBoringHeadsUp);
-                break;
-            case NAVBAR_STYLE:
-                int navbarStyle =
-                        TunerService.parseInteger(newValue, 0);
-                if (mNavbarStyle != navbarStyle) {
-                    mNavbarStyle = navbarStyle;
-                    updateNavbarStyle();
-                }
                 break;
             case PULSE_ON_NEW_TRACKS:
                 boolean showPulseOnNewTracks =
